@@ -1,0 +1,11 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:  # Enables manual execution
+
+jobs:
+  deploy_production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Production
+        run: echo "Deploying to Production..."
