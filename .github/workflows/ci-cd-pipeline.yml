@@ -3,14 +3,14 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - master  # Trigger the workflow when code is pushed to main
+      - main  # Automatically trigger when pushing to main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Build Application
         run: echo "Building application..."
   
@@ -20,14 +20,6 @@ jobs:
     steps:
       - name: Deploy to Staging
         run: echo "Deploying to Staging..."
-  
-  deploy_production:
-    needs: deploy_staging
-    runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'  # Only runs when manually triggered
-    steps:
-      - name: Deploy to Production
-        run: echo "Deploying to Production..."
 
 
 
